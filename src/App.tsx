@@ -136,7 +136,7 @@ function App() {
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: 'easeOut' }}>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-300/25 bg-fuchsia-400/10 px-4 py-2 text-sm text-fuchsia-100">
                 <Sparkles className="size-4" />
-                Open to Backend Developer Intern roles
+                Open to Full Stack Developer roles
               </div>
               <h1 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-tight text-white md:text-7xl">
                 {profile.name}
@@ -163,7 +163,7 @@ function App() {
                     <Target className="mt-1 size-5 text-cyan-200" />
                     <div>
                       <p className="font-semibold text-white">Career direction</p>
-                      <p className="text-sm leading-6 text-slate-300">Backend intern now, full stack developer long term.</p>
+                      <p className="text-sm leading-6 text-slate-300">Full stack developer focused on complete product delivery.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -189,12 +189,12 @@ function App() {
 
         <section id="about" className="px-5 py-20 md:px-8">
           <div className="mx-auto max-w-7xl">
-            <SectionHeading eyebrow="About" title="Focused on practical backend systems and complete product delivery" />
+            <SectionHeading eyebrow="About" title="Focused on full-stack web products and complete delivery" />
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }} className="grid gap-5 md:grid-cols-3">
               <div className="rounded-xl border border-white/10 bg-white/[0.04] p-6 md:col-span-2">
                 <h3 className="mb-4 text-2xl font-semibold text-white">Profile</h3>
                 <p className="leading-8 text-slate-300">
-                  I am a final-year Information Technology student with hands-on experience building APIs, database schemas, dashboards, web scraping pipelines, web applications, and mobile applications. My strongest focus is backend development, but I can work across the product from UI implementation to data modeling and deployment.
+                  I am a final-year Information Technology student focused on Full Stack Development, with hands-on experience building user interfaces, RESTful APIs, database schemas, dashboards, web scraping pipelines, web applications, and mobile applications. I can work across the product lifecycle from UI implementation and API design to data modeling, integration, optimization, and deployment.
                 </p>
               </div>
               <div className="rounded-xl border border-fuchsia-300/20 bg-fuchsia-400/10 p-6">
@@ -211,7 +211,7 @@ function App() {
 
         <section id="skills" className="px-5 py-20 md:px-8">
           <div className="mx-auto max-w-7xl">
-            <SectionHeading eyebrow="Skills" title="Technical stack built around web, backend, database, and mobile" />
+            <SectionHeading eyebrow="Skills" title="Technical stack built around frontend, backend, database, and mobile" />
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55 }} className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {skills.map((group) => (
                 <div key={group.title} className="rounded-xl border border-white/10 bg-white/[0.035] p-5 transition hover:border-fuchsia-300/40 hover:bg-white/[0.06]">
@@ -310,7 +310,7 @@ function App() {
         <section id="contact" className="px-5 py-24 md:px-8">
           <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }} className="mx-auto max-w-5xl rounded-2xl border border-fuchsia-300/20 bg-gradient-to-br from-fuchsia-400/16 via-white/[0.045] to-cyan-300/10 p-8 text-center md:p-12">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-fuchsia-200">Contact</p>
-            <h2 className="text-3xl font-semibold text-white md:text-5xl">Ready to discuss backend intern opportunities</h2>
+            <h2 className="text-3xl font-semibold text-white md:text-5xl">Ready to discuss full stack developer opportunities</h2>
             <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-300">The fastest way to reach me is email. You can also review my source code and project history on GitHub.</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a href={`mailto:${profile.email}`} className="inline-flex items-center justify-center gap-2 rounded-lg bg-fuchsia-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-fuchsia-200"><Mail className="size-4" /> Email me</a>
@@ -328,6 +328,7 @@ function App() {
 }
 
 export default App
+
 
 
 

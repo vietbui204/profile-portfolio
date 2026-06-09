@@ -1,7 +1,7 @@
 ﻿export const profile = {
   name: 'Bùi Đức Việt',
   displayName: 'Bùi Đức Việt',
-  role: 'Backend Developer Intern',
+  role: 'Full Stack Developer',
   futureRole: 'Full Stack Developer',
   location: 'Hà Nội, Việt Nam',
   birthday: 'May 21, 2004',
@@ -10,9 +10,9 @@
   github: 'https://github.com/vietbui204',
   cvPath: '/Bui-Duc-Viet-CV.pdf',
   summary:
-    'Final-year Information Technology student with a solid foundation in web development, backend engineering, database design, and practical end-to-end product building.',
+    'Final-year Information Technology student with a solid foundation in full-stack web development, database design, API development, and practical end-to-end product building.',
   objective:
-    'Seeking a Backend Developer Intern position to apply academic knowledge, improve specialized web programming skills, and contribute to real-world software products. Long term, I aim to grow into a Full Stack Developer.',
+    'Seeking a Full Stack Developer position to apply academic knowledge, strengthen practical web development skills, and contribute to real-world products across frontend, backend, database, and deployment workflows.',
 }
 
 export const stats = [
@@ -97,4 +97,5 @@ export const education = {
     'Delivered multiple academic software development projects with hands-on coding and system-building experience.',
   ],
 }
+
 
