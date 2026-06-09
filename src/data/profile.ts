@@ -18,7 +18,7 @@
 export const stats = [
   { value: '2+', label: 'End-to-end projects' },
   { value: '2026', label: 'Expected graduation' },
-  { value: '3 mo', label: 'Backend internship' },
+  { value: '3 mo', label: 'Real-world internship' },
 ]
 
 export const skills = [
@@ -48,6 +48,7 @@ export const projects = [
     github: 'https://github.com/vietbui204/website-manga',
     description:
       'A modern manga reading platform focused on reading experience optimization and a Creator Studio dashboard for content contributors.',
+    impact: 'Delivered reader experience, authentication, content dashboard, bulk upload flow, search suggestions, comments, and engagement analytics in one product.',
     highlights: [
       'Built a seamless reader interface with lazy loading to reduce bandwidth usage and improve chapter loading performance.',
       'Implemented automatic reading history tracking, secure authentication, profile customization, and real-time comments.',
@@ -63,6 +64,7 @@ export const projects = [
     github: 'https://github.com/vietbui204/reading-manhwa-app',
     description:
       'A cross-platform mobile manga reader designed with standardized architecture, optimized image loading, and a scalable backend system.',
+    impact: 'Connected a structured Flutter mobile client with a TypeScript backend, paginated APIs, PostgreSQL data model, cloud storage, and caching-oriented delivery.',
     highlights: [
       'Applied Clean Architecture and the BLoC pattern for maintainable state management and scalable feature development.',
       'Designed a responsive mobile UI with advanced search and a personalized user library experience.',
@@ -97,5 +99,7 @@ export const education = {
     'Delivered multiple academic software development projects with hands-on coding and system-building experience.',
   ],
 }
+
+
 
 

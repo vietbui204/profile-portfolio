@@ -4,13 +4,11 @@ import {
   ArrowDown,
   ArrowUpRight,
   BriefcaseBusiness,
-  CalendarDays,
   Download,
   GraduationCap,
   Layers3,
   Mail,
   MapPin,
-  Phone,
   Sparkles,
   Target,
 } from 'lucide-react'
@@ -18,6 +16,7 @@ import { FaGithub } from 'react-icons/fa'
 import { education, experiences, profile, projects, skills, stats } from './data/profile'
 
 const navItems = [
+  { href: '#top', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
@@ -30,7 +29,9 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 }
 
-const sectionIds = ['about', 'skills', 'projects', 'experience', 'contact']
+const sectionIds = ['top', 'about', 'skills', 'projects', 'experience', 'contact']
+
+const coreStrengths = ['Frontend implementation', 'RESTful API design', 'Database modeling', 'Deployment workflow']
 
 function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) {
   return (
@@ -52,7 +53,7 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
 function App() {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 })
-  const [activeSection, setActiveSection] = useState('about')
+  const [activeSection, setActiveSection] = useState('top')
   const [projectPulse, setProjectPulse] = useState(0)
 
   useEffect(() => {
@@ -92,7 +93,7 @@ function App() {
 
       <header className="fixed inset-x-0 top-1 z-40 border-b border-white/10 bg-[#070713]/78 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <a href="#top" className="group inline-flex items-center gap-2 text-sm font-semibold text-white">
+          <a href="#top" onClick={() => setActiveSection('top')} className="group inline-flex items-center gap-2 text-sm font-semibold text-white">
             <span className="grid size-9 place-items-center rounded-lg border border-fuchsia-300/30 bg-fuchsia-400/10 text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.25)]">BV</span>
             <span className="hidden sm:inline">{profile.displayName}</span>
           </a>
@@ -124,11 +125,35 @@ function App() {
             <Download className="size-4" />
             CV
           </a>
-        </nav>
+                </nav>
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 pb-4 md:hidden">
+          {navItems.map((item) => {
+            const sectionId = item.href.slice(1)
+            const isActive = activeSection === sectionId
+
+            return (
+              <a
+                key={`mobile-${item.href}`}
+                href={item.href}
+                onClick={() => setActiveSection(sectionId)}
+                className={`relative shrink-0 rounded-full px-3 py-2 text-xs transition ${isActive ? 'text-white' : 'text-slate-300'}`}
+              >
+                {isActive ? (
+                  <motion.span
+                    layoutId="active-mobile-nav-pill"
+                    className="absolute inset-0 rounded-full bg-fuchsia-400/18 shadow-[0_0_18px_rgba(217,70,239,0.32)] ring-1 ring-fuchsia-300/30"
+                    transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                  />
+                ) : null}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            )
+          })}
+        </div>
       </header>
 
-      <main id="top">
-        <section className="relative flex min-h-screen items-center px-5 pb-20 pt-32 md:px-8 md:pt-28">
+      <main>
+        <section id="top" className="relative flex min-h-screen items-center px-5 pb-20 pt-40 md:px-8 md:pt-28">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(217,70,239,0.22),transparent_34%),radial-gradient(circle_at_82%_20%,rgba(34,211,238,0.14),transparent_28%),linear-gradient(180deg,#070713_0%,#0b0b1f_52%,#070713_100%)]" />
           <div className="absolute left-1/2 top-24 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-3xl" />
 
@@ -158,6 +183,15 @@ function App() {
             <motion.aside initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15, duration: 0.65, ease: 'easeOut' }} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-fuchsia-950/30 backdrop-blur">
               <div className="rounded-xl border border-fuchsia-300/20 bg-[#101027] p-6">
                 <p className="text-sm uppercase tracking-[0.28em] text-fuchsia-300">Candidate snapshot</p>
+                <div className="mt-6 flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.035] p-4">
+                  <div className="grid size-16 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-fuchsia-300 to-cyan-200 text-xl font-bold text-slate-950 shadow-[0_0_34px_rgba(217,70,239,0.32)]">
+                    BĐV
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">{profile.displayName}</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-300">Full Stack Developer candidate with shipped web and mobile projects.</p>
+                  </div>
+                </div>
                 <div className="mt-7 space-y-5">
                   <div className="flex items-start gap-4">
                     <Target className="mt-1 size-5 text-cyan-200" />
@@ -198,11 +232,14 @@ function App() {
                 </p>
               </div>
               <div className="rounded-xl border border-fuchsia-300/20 bg-fuchsia-400/10 p-6">
-                <h3 className="mb-4 text-2xl font-semibold text-white">Contact basics</h3>
+                <h3 className="mb-4 text-2xl font-semibold text-white">Core strengths</h3>
                 <div className="space-y-3 text-sm text-slate-200">
-                  <p className="flex items-center gap-3"><Mail className="size-4 text-fuchsia-200" /> {profile.email}</p>
-                  <p className="flex items-center gap-3"><Phone className="size-4 text-fuchsia-200" /> {profile.phone}</p>
-                  <p className="flex items-center gap-3"><CalendarDays className="size-4 text-fuchsia-200" /> {profile.birthday}</p>
+                  {coreStrengths.map((strength) => (
+                    <p key={strength} className="flex items-center gap-3">
+                      <span className="size-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.75)]" />
+                      {strength}
+                    </p>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -245,6 +282,7 @@ function App() {
                       <p className="text-sm font-medium text-fuchsia-200">{project.period} | {project.role}</p>
                       <h3 className="mt-2 text-2xl font-semibold text-white md:text-3xl">{project.name}</h3>
                       <p className="mt-4 max-w-4xl leading-8 text-slate-300">{project.description}</p>
+                      <p className="mt-4 max-w-4xl rounded-lg border border-cyan-300/20 bg-cyan-300/8 px-4 py-3 text-sm leading-6 text-cyan-100"><span className="font-semibold text-cyan-200">Impact:</span> {project.impact}</p>
                     </div>
                     <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-fuchsia-300/30 px-4 py-2 text-sm font-semibold text-fuchsia-100 transition hover:bg-fuchsia-400/15">
                       Source code <ArrowUpRight className="size-4" />
@@ -328,6 +366,11 @@ function App() {
 }
 
 export default App
+
+
+
+
+
 
 
 
